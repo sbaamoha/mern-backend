@@ -27,9 +27,9 @@ app.use('/api', router)
 app.use('/api', userRouter)
 
 mongoose.set('strictQuery', false)
-mongoose.connect(port)
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
-        app.listen(process.env.PORT)
+        app.listen(port)
     })
     .catch((error) => {
         console.log(error)
